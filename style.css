@@ -1,54 +1,56 @@
 
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #040c1a;
-    font-family: 'Arial', sans-serif;
-    color: #ffffff;
-    text-align: center;
+  background-color: #050B16;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
-.container {
-    padding: 30px;
+header {
+  padding: 40px 20px;
 }
 .logo {
-    width: 100px;
-    margin: 20px auto;
+  width: 80px;
 }
 h1 {
-    font-size: 48px;
-    color: #00eaff;
+  font-size: 3em;
+  color: #00E8FC;
+  margin: 10px 0;
 }
-h2 {
-    font-size: 20px;
-    margin-bottom: 30px;
+.subtitle {
+  font-size: 1.2em;
+  margin-bottom: 20px;
 }
-.buttons {
-    margin-bottom: 40px;
+.buttons .btn {
+  background: transparent;
+  border: 2px solid #00E8FC;
+  color: #00E8FC;
+  padding: 10px 20px;
+  margin: 10px;
+  text-decoration: none;
+  font-weight: bold;
 }
-.btn {
-    background-color: transparent;
-    color: #00eaff;
-    border: 2px solid #00eaff;
-    padding: 10px 20px;
-    margin: 10px;
-    text-decoration: none;
-    display: inline-block;
-}
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px 10px;
 }
 .card {
-    background-color: #061529;
-    border: 1px solid #00eaff;
-    margin: 15px;
-    padding: 20px;
-    width: 250px;
-    text-align: left;
+  background: #0A101F;
+  border: 1px solid #00E8FC;
+  border-radius: 10px;
+  margin: 15px;
+  padding: 20px;
+  width: 260px;
+  text-align: left;
 }
-.footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #00eaff;
+.card h2 {
+  color: #00E8FC;
+}
+footer {
+  padding: 20px;
+  background: #0A101F;
+  font-size: 0.9em;
 }
