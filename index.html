@@ -1,66 +1,1050 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>OmniAI - Decentralized Intelligence</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OmniAI - The Future of AI-Powered Cryptocurrency</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        omniPrimary: '#6C63FF',
+                        omniSecondary: '#4F46E5',
+                        omniDark: '#1E1E2D',
+                        omniLight: '#F8F9FA',
+                        omniAccent: '#FF6B6B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #6C63FF 0%, #4F46E5 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #6C63FF, #FF6B6B);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .glow {
+            box-shadow: 0 0 20px rgba(108, 99, 255, 0.5);
+        }
+        
+        .glow-hover:hover {
+            box-shadow: 0 0 30px rgba(108, 99, 255, 0.7);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+        
+        .token-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: #6C63FF;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #6C63FF;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4F46E5;
+        }
+    </style>
 </head>
-<body>
-    <header>
-        <img src="logo.png" alt="OmniAI Logo" class="logo" />
-        <h1>OmniAI</h1>
-        <p class="subtitle">POWERING THE FUTURE OF DECENTRALIZED INTELLIGENCE</p>
-        <div class="buttons">
-            <a href="#" class="btn">BUY OAI</a>
-            <a href="#" class="btn">VIEW ON BSCSCAN</a>
-            <a href="#" class="btn">JOIN TELEGRAM</a>
+<body class="bg-omniLight">
+    <!-- Navigation -->
+    <nav class="bg-omniDark text-white py-4 px-6 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-robot text-3xl text-omniPrimary"></i>
+                <span class="text-2xl font-bold">Omni<span class="text-omniPrimary">AI</span></span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link hover:text-omniPrimary transition">Home</a>
+                <a href="#about" class="nav-link hover:text-omniPrimary transition">About</a>
+                <a href="#features" class="nav-link hover:text-omniPrimary transition">Features</a>
+                <a href="#tokenomics" class="nav-link hover:text-omniPrimary transition">Tokenomics</a>
+                <a href="#roadmap" class="nav-link hover:text-omniPrimary transition">Roadmap</a>
+                <a href="#team" class="nav-link hover:text-omniPrimary transition">Team</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="bg-omniPrimary hover:bg-omniSecondary px-6 py-2 rounded-full font-medium transition glow-hover">
+                    Buy Now
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-    </header>
-    <main>
-        <section class="grid">
-            <div class="card">
-                <h2>OAI TOKEN UTILITY</h2>
-                <ul>
-                    <li>Access AI services</li>
-                    <li>AI dacle! A(s)</li>
-                    <li>Fuel AI governance</li>
-                    <li>Transactions</li>
-                    <li>In autonomous app applications</li>
-                </ul>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-omniDark mt-2 rounded-lg">
+            <div class="px-4 py-3 space-y-4">
+                <a href="#home" class="block hover:text-omniPrimary transition">Home</a>
+                <a href="#about" class="block hover:text-omniPrimary transition">About</a>
+                <a href="#features" class="block hover:text-omniPrimary transition">Features</a>
+                <a href="#tokenomics" class="block hover:text-omniPrimary transition">Tokenomics</a>
+                <a href="#roadmap" class="block hover:text-omniPrimary transition">Roadmap</a>
+                <a href="#team" class="block hover:text-omniPrimary transition">Team</a>
             </div>
-            <div class="card">
-                <h2>TOKENOMICS</h2>
-                <ul>
-                    <li>Total supply</li>
-                    <li>Burnable</li>
-                    <li>Tax/Fees</li>
-                    <li>Fair Launch</li>
-                    <li>Governance</li>
-                    <li>100% reno.</li>
-                </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white py-20 relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-white opacity-20 animate-pulse-slow"></div>
+            <div class="absolute top-1/3 right-1/3 w-24 h-24 rounded-full bg-omniAccent opacity-20 animate-pulse-slow animation-delay-1000"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full bg-omniPrimary opacity-20 animate-pulse-slow animation-delay-2000"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center relative z-10">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">The Future of <span class="gradient-text">AI-Powered</span> Cryptocurrency</h1>
+                <p class="text-xl mb-8 opacity-90">OmniAI combines artificial intelligence with blockchain technology to create the most advanced decentralized financial ecosystem.</p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="bg-white text-omniPrimary hover:bg-gray-100 px-6 py-3 rounded-full font-bold transition flex items-center justify-center glow-hover">
+                        <i class="fas fa-wallet mr-2"></i> Get Started
+                    </button>
+                    <button class="bg-transparent border-2 border-white hover:bg-white hover:text-omniPrimary px-6 py-3 rounded-full font-bold transition flex items-center justify-center">
+                        <i class="fas fa-chart-line mr-2"></i> View Charts
+                    </button>
+                </div>
+                <div class="mt-8 flex flex-wrap gap-6">
+                    <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-sm">
+                        <p class="text-sm opacity-80">Current Price</p>
+                        <p class="text-2xl font-bold">$<span id="current-price">0.42</span></p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-sm">
+                        <p class="text-sm opacity-80">Market Cap</p>
+                        <p class="text-2xl font-bold">$<span id="market-cap">84</span>M</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-sm">
+                        <p class="text-sm opacity-80">24h Change</p>
+                        <p class="text-2xl font-bold text-green-400">+<span id="price-change">12.7</span>%</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 p-4 rounded-xl backdrop-blur-sm">
+                        <p class="text-sm opacity-80">Circulating Supply</p>
+                        <p class="text-2xl font-bold"><span id="supply">200</span>M OMNI</p>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h2>ROADMAP</h2>
-                <ul>
-                    <li>Phase 1 – Launch</li>
-                    <li>Phase 2 – AI integrations</li>
-                    <li>Phase 3 – AI</li>
-                </ul>
+            <div class="md:w-1/2 flex justify-center relative">
+                <div class="relative">
+                    <div class="animate-float">
+                        <div class="relative w-64 h-64">
+                            <div class="absolute inset-0 rounded-full bg-omniPrimary opacity-20 animate-ping"></div>
+                            <img src="https://cryptologos.cc/logos/bitcoin-btc-logo.png" alt="OmniAI Coin" class="w-full h-full rounded-full glow object-contain">
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-omniDark p-4 rounded-xl shadow-lg backdrop-blur-sm border border-gray-800">
+                        <p class="text-sm">Powered by</p>
+                        <p class="font-bold">AI Neural Network</p>
+                    </div>
+                    
+                    <!-- Floating AI elements around the coin -->
+                    <div class="absolute -top-10 -right-10 w-16 h-16 rounded-full bg-omniAccent bg-opacity-20 flex items-center justify-center animate-spin-slow">
+                        <i class="fas fa-brain text-omniAccent text-xl"></i>
+                    </div>
+                    <div class="absolute bottom-0 -right-10 w-12 h-12 rounded-full bg-omniPrimary bg-opacity-20 flex items-center justify-center animate-spin-slow animation-direction-reverse">
+                        <i class="fas fa-link text-omniPrimary text-lg"></i>
+                    </div>
+                </div>
             </div>
-            <div class="card">
-                <h2>TRUST FEATURES</h2>
-                <ul>
-                    <li>Contract verified</li>
-                    <li>Ownership renounced</li>
-                    <li>Fair launch • no presale</li>
-                </ul>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <p class="text-center text-gray-500 mb-8">TRUSTED BY LEADING BLOCKCHAIN PROJECTS</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70">
+                <img src="https://cryptologos.cc/logos/ethereum-eth-logo.png" alt="Ethereum" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition">
+                <img src="https://cryptologos.cc/logos/polygon-matic-logo.png" alt="Polygon" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition">
+                <img src="https://cryptologos.cc/logos/chainlink-link-logo.png" alt="Chainlink" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition">
+                <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.png" alt="Binance" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition">
+                <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana" class="h-8 md:h-12 object-contain grayscale hover:grayscale-0 transition">
             </div>
-        </section>
-    </main>
-    <footer>
-        <p>© 2025 OmniAI. All rights reserved.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Revolutionizing Crypto with <span class="gradient-text">Artificial Intelligence</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">OmniAI is not just another cryptocurrency. It's a complete ecosystem powered by advanced machine learning algorithms that optimize transactions, security, and investment strategies.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Why OmniAI Stands Out</h3>
+                    <p class="text-gray-600 mb-6">Traditional cryptocurrencies operate on static protocols. OmniAI introduces dynamic, self-improving blockchain technology that learns and adapts to market conditions, user behavior, and security threats.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-omniPrimary bg-opacity-10 p-3 rounded-full mr-4">
+                                <i class="fas fa-brain text-omniPrimary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Adaptive Learning</h4>
+                                <p class="text-gray-600">Our AI continuously analyzes blockchain data to optimize performance and security.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-omniPrimary bg-opacity-10 p-3 rounded-full mr-4">
+                                <i class="fas fa-shield-alt text-omniPrimary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Enhanced Security</h4>
+                                <p class="text-gray-600">Predictive threat detection prevents attacks before they happen.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-omniPrimary bg-opacity-10 p-3 rounded-full mr-4">
+                                <i class="fas fa-bolt text-omniPrimary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-1">Lightning Fast</h4>
+                                <p class="text-gray-600">AI-optimized routing ensures the fastest transaction speeds.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <button class="flex items-center text-omniPrimary font-medium">
+                            <span>Learn more about our technology</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-omniDark rounded-2xl p-8 text-white token-card">
+                        <h3 class="text-2xl font-bold mb-6">Technical Specifications</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between pb-2 border-b border-gray-700">
+                                <span>Blockchain</span>
+                                <span class="font-medium">OmniAI Chain</span>
+                            </div>
+                            <div class="flex justify-between pb-2 border-b border-gray-700">
+                                <span>Consensus</span>
+                                <span class="font-medium">AI-Proof-of-Stake</span>
+                            </div>
+                            <div class="flex justify-between pb-2 border-b border-gray-700">
+                                <span>TPS</span>
+                                <span class="font-medium">5,000+</span>
+                            </div>
+                            <div class="flex justify-between pb-2 border-b border-gray-700">
+                                <span>Smart Contracts</span>
+                                <span class="font-medium">AI-Optimized</span>
+                            </div>
+                            <div class="flex justify-between pb-2 border-b border-gray-700">
+                                <span>Token Standard</span>
+                                <span class="font-medium">OMNI-20</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Initial Supply</span>
+                                <span class="font-medium">200,000,000 OMNI</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -right-6 bg-omniAccent text-white p-4 rounded-xl shadow-lg">
+                        <div class="flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            <p class="text-sm font-medium">Mainnet launch Q1 2024</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Cutting-Edge <span class="gradient-text">Features</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">OmniAI brings unprecedented innovation to the blockchain space through artificial intelligence integration.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
+                    <div class="bg-omniPrimary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-omniPrimary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">AI Trading Assistant</h3>
+                    <p class="text-gray-600">Our built-in trading bot learns your risk profile and executes trades automatically with optimal timing.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
+                    <div class="bg-omniPrimary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-lock text-omniPrimary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Predictive Security</h3>
+                    <p class="text-gray-600">Neural networks detect and prevent suspicious activity before it impacts your assets.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
+                    <div class="bg-omniPrimary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-project-diagram text-omniPrimary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Dynamic Network</h3>
+                    <p class="text-gray-600">The blockchain automatically adjusts parameters like block size and fees based on real-time demand.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
+                    <div class="bg-omniPrimary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-pie text-omniPrimary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Smart Staking</h3>
+                    <p class="text-gray-600">AI determines optimal staking strategies to maximize your rewards based on market conditions.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
+                    <div class="bg-omniPrimary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-exchange-alt text-omniPrimary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Cross-Chain AI</h3>
+                    <p class="text-gray-600">Intelligent bridges automatically find the most efficient paths for cross-chain transactions.</p>
+                </div>
+                
+                <div class="feature-card bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition">
+                    <div class="bg-omniPrimary bg-opacity-10 p-4 rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-omniPrimary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">DAO Governance</h3>
+                    <p class="text-gray-600">Community proposals are analyzed by AI to predict impact before voting occurs.</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <button class="bg-omniPrimary hover:bg-omniSecondary text-white px-8 py-3 rounded-full font-bold transition glow-hover">
+                    Explore All Features
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Token <span class="gradient-text">Economics</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Carefully designed distribution to ensure long-term sustainability and growth of the OmniAI ecosystem.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="w-full max-w-md mx-auto">
+                        <canvas id="tokenChart" height="400"></canvas>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 rounded-full bg-omniPrimary mr-3"></div>
+                                <span>Public Sale</span>
+                            </div>
+                            <span class="font-bold">40%</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 rounded-full bg-yellow-400 mr-3"></div>
+                                <span>Team & Advisors</span>
+                            </div>
+                            <span class="font-bold">15% (3-year vesting)</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 rounded-full bg-green-500 mr-3"></div>
+                                <span>Ecosystem Development</span>
+                            </div>
+                            <span class="font-bold">25%</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 rounded-full bg-blue-500 mr-3"></div>
+                                <span>Staking Rewards</span>
+                            </div>
+                            <span class="font-bold">15%</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-between bg-gray-50 p-4 rounded-lg">
+                            <div class="flex items-center">
+                                <div class="w-4 h-4 rounded-full bg-purple-500 mr-3"></div>
+                                <span>Liquidity</span>
+                            </div>
+                            <span class="font-bold">5%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 bg-omniDark text-white p-6 rounded-xl">
+                        <h3 class="text-xl font-bold mb-4">Token Utility</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-omniPrimary mt-1 mr-2"></i>
+                                <span>Pay for AI services on the OmniAI network</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-omniPrimary mt-1 mr-2"></i>
+                                <span>Stake to earn rewards and participate in governance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-omniPrimary mt-1 mr-2"></i>
+                                <span>Discounts on transaction fees when paying with OMNI</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-omniPrimary mt-1 mr-2"></i>
+                                <span>Access premium features in OmniAI applications</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="mt-6 flex flex-col sm:flex-row gap-4">
+                            <button class="bg-omniPrimary hover:bg-omniSecondary px-4 py-2 rounded-lg font-medium transition">
+                                Token Contract
+                            </button>
+                            <button class="bg-transparent border border-gray-600 hover:bg-gray-700 px-4 py-2 rounded-lg font-medium transition">
+                                Audit Report
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="gradient-text">Roadmap</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">The strategic development plan for OmniAI's growth and ecosystem expansion.</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline line -->
+                <div class="hidden md:block absolute left-1/2 h-full w-1 bg-omniPrimary transform -translate-x-1/2"></div>
+                
+                <!-- Timeline items -->
+                <div class="space-y-12">
+                    <!-- Q1 2023 -->
+                    <div class="relative md:flex justify-between items-center">
+                        <div class="md:w-5/12 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">Q1 2023</h3>
+                            <p class="text-gray-600">Concept development and whitepaper release</p>
+                        </div>
+                        <div class="hidden md:block w-8 h-8 rounded-full bg-omniPrimary absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 md:pl-12">
+                            <div class="bg-white p-6 rounded-xl shadow-md">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Core team formation</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Initial AI research completed</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Q2 2023 -->
+                    <div class="relative md:flex justify-between items-center">
+                        <div class="md:w-5/12 md:pr-12 mb-6 md:mb-0 md:text-right order-2">
+                            <div class="bg-white p-6 rounded-xl shadow-md">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Private funding round closed</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>Testnet v1 launched</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hidden md:block w-8 h-8 rounded-full bg-omniPrimary absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 md:pl-12 order-1">
+                            <h3 class="text-xl font-bold mb-2">Q2 2023</h3>
+                            <p class="text-gray-600">Testnet development and private funding</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Q3 2023 -->
+                    <div class="relative md:flex justify-between items-center">
+                        <div class="md:w-5/12 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">Q3 2023</h3>
+                            <p class="text-gray-600">Public sale and ecosystem partnerships</p>
+                        </div>
+                        <div class="hidden md:block w-8 h-8 rounded-full bg-omniPrimary absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 md:pl-12">
+                            <div class="bg-white p-6 rounded-xl shadow-md">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                        <span>IDO completed on major platforms</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 mr-2"></i>
+                                        <span>CEX listings in progress</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Q4 2023 -->
+                    <div class="relative md:flex justify-between items-center">
+                        <div class="md:w-5/12 md:pr-12 mb-6 md:mb-0 md:text-right order-2">
+                            <div class="bg-white p-6 rounded-xl shadow-md">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-spinner text-yellow-500 mt-1 mr-2"></i>
+                                        <span>Mainnet beta testing</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-circle-notch text-blue-500 mt-1 mr-2"></i>
+                                        <span>AI trading bot development</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="hidden md:block w-8 h-8 rounded-full bg-omniPrimary absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 md:pl-12 order-1">
+                            <h3 class="text-xl font-bold mb-2">Q4 2023</h3>
+                            <p class="text-gray-600">Mainnet development and product suite</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Q1 2024 -->
+                    <div class="relative md:flex justify-between items-center">
+                        <div class="md:w-5/12 md:pr-12 mb-6 md:mb-0 md:text-right">
+                            <h3 class="text-xl font-bold mb-2">Q1 2024</h3>
+                            <p class="text-gray-600">Mainnet launch and ecosystem expansion</p>
+                        </div>
+                        <div class="hidden md:block w-8 h-8 rounded-full bg-omniPrimary absolute left-1/2 transform -translate-x-1/2"></div>
+                        <div class="md:w-5/12 md:pl-12">
+                            <div class="bg-white p-6 rounded-xl shadow-md">
+                                <ul class="space-y-2">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-circle-notch text-blue-500 mt-1 mr-2"></i>
+                                        <span>Mainnet launch</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-circle-notch text-blue-500 mt-1 mr-2"></i>
+                                        <span>DEX and wallet integration</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet The <span class="gradient-text">Team</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Our team combines decades of experience in blockchain technology, artificial intelligence, and financial markets.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-omniPrimary to-omniAccent p-1 mb-4">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Team Member" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold">Dr. Alan Turing</h3>
+                    <p class="text-omniPrimary mb-2">Chief AI Scientist</p>
+                    <p class="text-gray-600 text-sm">Former AI researcher at DeepMind with 15+ years in machine learning.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-omniPrimary transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-omniPrimary transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-omniPrimary to-omniAccent p-1 mb-4">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Team Member" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold">Sophia Nakamoto</h3>
+                    <p class="text-omniPrimary mb-2">Blockchain Architect</p>
+                    <p class="text-gray-600 text-sm">Lead developer of multiple top 50 blockchain projects since 2016.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-omniPrimary transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-omniPrimary transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-omniPrimary to-omniAccent p-1 mb-4">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Team Member" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold">Mark Neumann</h3>
+                    <p class="text-omniPrimary mb-2">CEO & Founder</p>
+                    <p class="text-gray-600 text-sm">Serial entrepreneur with 3 successful blockchain exits.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-omniPrimary transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-omniPrimary transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6 text-center">
+                    <div class="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-omniPrimary to-omniAccent p-1 mb-4">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center overflow-hidden">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Team Member" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <h3 class="text-xl font-bold">Lisa Zhang</h3>
+                    <p class="text-omniPrimary mb-2">Head of Finance</p>
+                    <p class="text-gray-600 text-sm">Former Wall Street quant with expertise in crypto derivatives.</p>
+                    <div class="flex justify-center space-x-3 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-omniPrimary transition">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-omniPrimary transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="bg-omniPrimary hover:bg-omniSecondary text-white px-6 py-3 rounded-full font-medium transition glow-hover">
+                    View Full Team
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg text-white py-16 relative overflow-hidden">
+        <!-- Animated background elements -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10">
+            <div class="absolute top-1/4 left-1/4 w-32 h-32 rounded-full bg-white opacity-20 animate-pulse-slow"></div>
+            <div class="absolute top-1/3 right-1/3 w-24 h-24 rounded-full bg-omniAccent opacity-20 animate-pulse-slow animation-delay-1000"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-40 h-40 rounded-full bg-omniPrimary opacity-20 animate-pulse-slow animation-delay-2000"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Join the <span class="text-yellow-300">AI Crypto Revolution</span>?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Be part of the future of decentralized finance powered by artificial intelligence.</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <button class="bg-white text-omniPrimary hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg transition glow-hover">
+                    <i class="fas fa-coins mr-2"></i> Buy OmniAI Now
+                </button>
+                <button class="bg-transparent border-2 border-white hover:bg-white hover:text-omniPrimary px-8 py-4 rounded-full font-bold text-lg transition">
+                    <i class="fas fa-file-alt mr-2"></i> Read Whitepaper
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Find answers to common questions about OmniAI and its technology.</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="flex justify-between items-center w-full text-left">
+                        <h3 class="text-lg font-bold">What makes OmniAI different from other cryptocurrencies?</h3>
+                        <i class="fas fa-chevron-down text-omniPrimary ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>OmniAI integrates artificial intelligence directly into its blockchain protocol, enabling self-optimizing features that traditional cryptocurrencies can't match. Our AI continuously analyzes network conditions, security threats, and market dynamics to automatically adjust parameters for optimal performance.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="flex justify-between items-center w-full text-left">
+                        <h3 class="text-lg font-bold">How does the AI Proof-of-Stake consensus work?</h3>
+                        <i class="fas fa-chevron-down text-omniPrimary ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>Our AI-PoS consensus mechanism uses machine learning to select validators based on multiple factors beyond just stake amount, including historical performance, network contribution, and security metrics. This creates a more efficient and secure validation process compared to traditional PoS systems.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="flex justify-between items-center w-full text-left">
+                        <h3 class="text-lg font-bold">When will OmniAI be listed on major exchanges?</h3>
+                        <i class="fas fa-chevron-down text-omniPrimary ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>We're currently in discussions with several top-tier exchanges and expect listings to begin in Q4 2023 following our public sale. Exchange listings will be announced through our official channels once confirmed.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="flex justify-between items-center w-full text-left">
+                        <h3 class="text-lg font-bold">What wallets support OMNI tokens?</h3>
+                        <i class="fas fa-chevron-down text-omniPrimary ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>At launch, OMNI will be supported by MetaMask, Trust Wallet, and our official OmniAI Wallet. We're working on integrations with additional wallets and hardware wallets like Ledger and Trezor, which should be available by mainnet launch.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <button class="flex justify-between items-center w-full text-left">
+                        <h3 class="text-lg font-bold">How can I participate in the OmniAI ecosystem?</h3>
+                        <i class="fas fa-chevron-down text-omniPrimary ml-4 transition-transform duration-300"></i>
+                    </button>
+                    <div class="mt-4 text-gray-600 hidden">
+                        <p>There are several ways to get involved: purchase OMNI tokens during our public sale, become a validator when mainnet launches, develop AI-powered dApps on our platform, or participate in our DAO governance. Join our community channels to stay updated on opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-omniDark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fas fa-robot text-3xl text-omniPrimary"></i>
+                        <span class="text-2xl font-bold">Omni<span class="text-omniPrimary">AI</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">The future of AI-powered blockchain technology.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-telegram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-discord text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-medium text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Resources</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Whitepaper</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">GitHub</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Press Kit</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Ecosystem</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">DEX</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Wallet</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Staking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Governance</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Developer Grants</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6">Subscribe</h3>
+                    <p class="text-gray-400 mb-4">Get the latest updates on OmniAI development.</p>
+                    <div class="flex">
+                        <input type="email" placeholder="Your email" class="bg-gray-800 text-white px-4 py-2 rounded-l-lg focus:outline-none w-full focus:ring-2 focus:ring-omniPrimary">
+                        <button class="bg-omniPrimary hover:bg-omniSecondary px-4 py-2 rounded-r-lg transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">We respect your privacy. Unsubscribe at any time.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-500 mb-4 md:mb-0">© 2023 OmniAI. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition">Terms</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition">Privacy</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition">Cookies</a>
+                    <a href="#" class="text-gray-500 hover:text-white transition">Disclaimer</a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-omniPrimary text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Chart.js for Tokenomics -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Token Distribution Chart
+        const ctx = document.getElementById('tokenChart').getContext('2d');
+        const tokenChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Public Sale', 'Team & Advisors', 'Ecosystem Development', 'Staking Rewards', 'Liquidity'],
+                datasets: [{
+                    data: [40, 15, 25, 15, 5],
+                    backgroundColor: [
+                        '#6C63FF',
+                        '#FFC107',
+                        '#4CAF50',
+                        '#2196F3',
+                        '#9C27B0'
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            boxWidth: 12,
+                            padding: 20,
+                            font: {
+                                family: 'Inter'
+                            }
+                        }
+                    },
+                    tooltip: {
+                        bodyFont: {
+                            family: 'Inter'
+                        },
+                        titleFont: {
+                            family: 'Inter'
+                        }
+                    }
+                },
+                cutout: '70%'
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if (mobileMenu.classList.contains('open')) {
+                    mobileMenu.classList.remove('open');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // FAQ accordion
+        const faqButtons = document.querySelectorAll('.bg-white.p-6.rounded-xl.shadow-md button');
+        
+        faqButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const icon = button.querySelector('i');
+                
+                answer.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Price ticker simulation
+        let currentPrice = 0.42;
+        setInterval(() => {
+            // Random price fluctuation
+            const change = (Math.random() - 0.5) * 0.02;
+            currentPrice = Math.max(0.35, Math.min(0.55, currentPrice + change));
+            
+            // Update price display
+            document.getElementById('current-price').textContent = currentPrice.toFixed(2);
+            
+            // Update market cap (based on 200M supply)
+            const marketCap = (currentPrice * 200000000).toFixed(0);
+            document.getElementById('market-cap').textContent = (marketCap / 1000000).toFixed(0);
+            
+            // Update 24h change
+            const changePercent = ((change / 0.42) * 100).toFixed(1);
+            const changeElement = document.getElementById('price-change');
+            changeElement.textContent = changePercent;
+            
+            // Update color based on direction
+            if (change > 0) {
+                changeElement.parentElement.classList.remove('text-red-400');
+                changeElement.parentElement.classList.add('text-green-400');
+                changeElement.textContent = '+' + changePercent;
+            } else {
+                changeElement.parentElement.classList.remove('text-green-400');
+                changeElement.parentElement.classList.add('text-red-400');
+                changeElement.textContent = changePercent;
+            }
+        }, 3000);
+        
+        // Animate elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.feature-card, .token-card, .bg-white.rounded-xl.shadow-md');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.feature-card, .token-card, .bg-white.rounded-xl.shadow-md').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
 </body>
 </html>
